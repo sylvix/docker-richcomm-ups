@@ -1,0 +1,58 @@
+#!/bin/sh
+#
+RETVAL=0
+LANG=C
+
+start()
+{
+	echo -n "Starting ups_manager...: "
+	./ups_monitor &
+	RETVAL=$?
+	echo
+#	[ $RETVAL = 0 ] && touch /var/lock/subsys/httpd
+	return $RETVAL
+}
+stop()
+{
+	echo -n "Shutting down ups_manager.: "
+	RETVAL=$?
+	echo
+	./ups_monitor stop
+	return $RETVAL
+}
+status()
+{
+	echo -n "Starting  ups_manager status.: "
+	RETVAL=$?
+	echo
+	./ups_status
+	return $RETVAL
+}
+
+# See how we were called.
+case "$1" in
+  start)
+	start
+	;;
+  stop)
+	stop
+	;;
+  status)
+	status
+	;;
+  config)
+	./ups_config
+	;;
+  #restart)
+	#echo -n "Now restart ups_manager.: "
+	#stop
+	#sleep 2
+	#start
+	#;;
+  *)
+	echo "Usage: $0 {start|stop|status|config}"
+
+	exit 1
+esac
+
+exit $RETVAL

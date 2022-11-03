@@ -1,0 +1,5 @@
+services:
+  upsmonitor:
+    build: "."
+    devices:
+      - "/dev/usb/hiddev0:/dev/usb/hiddev0"

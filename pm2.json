@@ -1,0 +1,10 @@
+{
+  "apps": [{
+    "name": "ups-docker",
+    "script": "./ups/ups_monitor",
+    "cwd": "./ups",
+    "instances": "1",
+    "exec_interpreter": "none",
+    "exec_mode": "fork_mode"
+  }]
+}
