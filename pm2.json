@@ -1,10 +1,17 @@
 {
   "apps": [{
-    "name": "ups-docker",
+    "name": "ups-monitor",
     "script": "./ups/ups_monitor",
     "cwd": "./ups",
-    "instances": "1",
+    "output": "/dev/null",
+    "instances": 1,
     "exec_interpreter": "none",
+    "exec_mode": "fork_mode"
+  }, {
+    "name": "ups-server",
+    "script": "./app/index.js",
+    "cwd": "./app",
+    "instances": 1,
     "exec_mode": "fork_mode"
   }]
 }

@@ -1,5 +1,7 @@
 services:
   upsmonitor:
     build: "."
+    ports:
+      - "8000:8000"
     devices:
       - "/dev/usb/hiddev0:/dev/usb/hiddev0"

@@ -23,16 +23,11 @@ RUN npm install pm2@5.2.2 -g
 # Bundle ups_manager files
 COPY ups ./ups/
 
-# Bundle app files
-#COPY app ./app/
-#COPY package.json ./app/
+# Bundle server file
+COPY index.js ./app/
+COPY public ./app/public
 COPY pm2.json .
 
-# Install app dependencies
-#ENV NPM_CONFIG_LOGLEVEL warn
-#RUN npm install --production
-
-# Show current folder structure in logs
-#RUN ls -al -R
+EXPOSE 8000
 
 CMD [ "pm2-runtime", "start", "pm2.json" ]

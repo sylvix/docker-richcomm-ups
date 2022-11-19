@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .console-wrapper {
+            display: flex;
+        }
+        #console {
+            background: black;
+            color: white;
+            white-space: pre;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+<div class="console-wrapper">
+    <div id="console"></div>
+</div>
+<script>
+    const url = '/preview.json';
+    const consoleElement = document.getElementById('console');
+
+    const run = async () => {
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error('API unavailable for some reason!');
+        }
+
+        const data = await response.json();
+        consoleElement.innerText = data.resultPreview;
+    };
+
+    run().catch(console.error);
+    setInterval(run, 2000);
+</script>
+</body>
+</html>
