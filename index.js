@@ -17,6 +17,7 @@ const parts = [
     {name: 'UPS Rating Current', value: 'number', key: 'ratingCurrent'},
     {name: 'UPS Line Frequency', value: 'number', key: 'lineFrequency'},
     {name: 'Communication Port', value: 'number', key: 'communicationPort'},
+    {name: 'UPS Output Voltage', value: 'number', key: 'outputVoltage'},
     {name: 'Input AC Power', value: 'string', key: 'inputACPower'},
     {name: 'Battery Status', value: 'string', key: 'batteryStatus'},
     {name: 'UPS Status', value: 'string', key: 'upsStatus'},
